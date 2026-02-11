@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style_wel.css">
+    <script src="script_wel.js" defer></script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="welcome-box">
+        <h2 id="welcomeText">Loading...</h2>
+    </div>
+
+    <div class="top-actions">
+        <div class="calendar-icon" onclick="toggleCalendar()">
+            📅 <span id="inlineDate"></span>
+        </div>
+        <button class="exit-btn" id="exitBtn" onclick="systemExit()">
+            Exit System
+        </button>
+    </div>
+</div>
+
+<div id="actionButtons" class="action-area" style="display:none;">
+    <button class="primary-btn" id="loginBtn" onclick="markLogin()">Mark Login</button>
+    <button class="secondary-btn" id="logoutBtn" onclick="markLogout()">Mark Logout</button>
+</div>
+<!-- CALENDAR -->
+<div class="calendar-popup" id="calendarBox">
+    <div class="calendar-header">
+        <button onclick="changeMonth(-1)">❮</button>
+        <h4 id="monthYear"></h4>
+        <button onclick="changeMonth(1)">❯</button>
+    </div>
+
+    <div class="weekdays">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <div class="days" id="calendarDays"></div>
+    <div class="holiday-msg" id="holidayMsg"></div>
+</div>
+
+<!-- PROFILE CARD -->
+<div id="profileCard" class="profile-card">
+    <h3>Employee Profile</h3>
+    <div class="profile-grid">
+        <div><label>Name</label><span id="disp_name"></span></div>
+        <div><label>Employee ID</label><span id="disp_id"></span></div>
+        <div><label>Email</label><span id="disp_mail"></span></div>
+        <div><label>Department</label><span id="disp_dept"></span></div>
+        <div><label>Sub-Dept</label><span id="disp_subdept"></span></div>
+        <div><label>Position</label><span id="disp_pos"></span></div>
+        <div><label>Location</label><span id="disp_loc"></span></div>
+        <div><label>Manager ID</label><span id="disp_mgr"></span></div>
+    </div>
+</div>
+<!-- FOOTER -->
+<footer class="company-footer">
+    <div class="footer-content">
+
+        <!-- Company Info -->
+        <div class="footer-section company">
+            <img src="" alt="Premier Energies" class="company-logo">
+            <p class="company-name">Premier Energies Ltd</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section">
+            <p><strong>📞 Contact</strong></p>
+            <p>+91 6305078575</p>
+        </div>
+
+        <!-- Email -->
+        <div class="footer-section">
+            <p><strong>📧 Email</strong></p>
+            <a href="mailto:peddadasuryalalitha@gmail.com">
+                peddadasuryalalitha@gmail.com
+            </a>
+        </div>
+
+        <!-- Address -->
+        <div class="footer-section">
+            <p><strong>📍 Corporate Office</strong></p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Premier+Energies+Hyderabad"
+               target="_blank">
+                Hyderabad – Premier Energies
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Premier Energies. All Rights Reserved.
+    </div>
+</footer>
+
+<div id="toast"></div>
+
+</body>
+</html>

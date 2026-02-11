@@ -1,0 +1,799 @@
+/* RESET & BASE */
+/** {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #170121;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding-top: 90px; /* Space for top bar */
+
+/*
+    overflow-x: hidden;
+}
+*/
+/* ---------------- TOP BAR ---------------- */
+/*
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    /*background: #2a033d;*/
+    /*
+    background: rgba(42, 3, 61, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 200, 83, 0.2);
+}
+
+.welcome-box h2 {
+    margin: 0;
+    color: #00c853;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+/*
+button {
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ---------------- CALENDAR ---------------- */
+/*
+.calendar-icon {
+    cursor: pointer;
+    font-size: 13px;
+    background: #3b0557;
+    padding: 6px 14px;
+    border-radius: 20px;
+    user-select: none;
+}
+
+.calendar-popup {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    width: 300px;
+    background: #2a033d;
+    padding: 15px;
+    border-radius: 12px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 2000;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.weekdays,
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays div {
+    font-weight: bold;
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+.days div {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.days div:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.days div.selected {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+.weekend {
+    background: #ff5252;
+}
+
+.today {
+    background: #00c853;
+    color: black;
+    font-weight: bold;
+}
+
+.holiday-msg {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 11px;
+    color: #ffcccb;
+}
+
+/* ---------------- PROFILE CARD ---------------- */
+/*
+.profile-card {
+    background: rgba(42, 3, 61, 0.85);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 22px;
+    border-radius: 14px;
+    width: 300px;
+    margin: 40px auto 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.profile-card h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #00c853;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.profile-grid div {
+    background: rgba(255,255,255,0.06);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.profile-grid label {
+    display: block;
+    font-size: 11px;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.profile-grid span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ---------------- ACTION AREA ---------------- */
+/*
+.action-area {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 80px;
+    z-index: 1500;
+}
+
+/* ---------------- TABS ---------------- */
+/*
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto;
+    padding: 0 20px;
+    max-width: 1000px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 24px;
+    background: rgba(42, 3, 61, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.tab-btn.active {
+    background: #00c853;
+    color: #170121;
+    border-color: #00c853;
+}
+
+/* ---------------- TABLE ---------------- */
+/*
+.table-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: rgba(42, 3, 61, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: rgba(0, 200, 83, 0.1);
+    border-bottom: 2px solid #00c853;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00c853;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ---------------- ACTION BUTTONS INSIDE TABLE ---------------- */
+/*
+.remove-btn {
+    background: #ff5252;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+}
+
+.remove-btn:hover {
+    background: #ff1744;
+}
+
+.activate-btn {
+    background: #00c853;
+    border: none;
+    color: #170121;
+    font-weight: bold;
+    padding: 6px 12px;
+}
+
+.activate-btn:hover {
+    background: #00e676;
+}
+
+.approve-btn {
+    background: #2979ff;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+}
+
+.approve-btn:hover {
+    background: #2962ff;
+}
+
+/* Hide action buttons when in Attendance Tab if you prefer */
+/*.attendance-mode .table-container {
+    margin-bottom: 200px; /* Space for the floating Login/Logout buttons */
+
+/* ---------------- FOOTER ---------------- */
+/*
+.company-footer {
+    margin-top: 50px;
+    background: #2a033d;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section a {
+    color: #00c853;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Company Logo */
+/*
+.company-logo {
+    width: 120px;
+    margin-bottom: 8px;
+}
+
+.company-name {
+    font-weight: bold;
+    color: #00c853;
+}
+
+/* Footer Bottom */
+/*
+.footer-bottom {
+    text-align: center;
+    padding: 5px;
+    background: #1d022b;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* ---------------- TOAST ----*/
+/*
+#toast {
+    visibility: hidden;
+    min-width: 220px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 14px;
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+    font-size: 14px;
+    z-index: 3000;
+}
+
+#toast.show {
+    visibility: visible;
+}
+*/
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #170121; /* Dark Purple Base */
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    padding-top: 90px; /* Space for Fixed Top Bar */
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION BAR
+   ========================================================================== */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: rgba(42, 3, 61, 0.95);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 200, 83, 0.3);
+}
+
+.welcome-box h2 {
+    margin: 0;
+    color: #00c853; /* Premier Green */
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT CONTAINER
+   ========================================================================== */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 100px 20px;
+}
+
+/* ==========================================================================
+   MANAGER TABS
+   ========================================================================== */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: rgba(0, 200, 83, 0.1);
+}
+
+.tab-btn.active {
+    background: #00c853;
+    color: #170121;
+    border-color: #00c853;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
+}
+
+/* ==========================================================================
+   EMPLOYEE DATA TABLE
+   ========================================================================== */
+.table-container {
+    width: 100%;
+    background: rgba(42, 3, 61, 0.6);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgba(0, 200, 83, 0.15);
+}
+
+th {
+    padding: 18px 25px;
+    text-align: left;
+    font-size: 13px;
+    color: #00c853;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid rgba(0, 200, 83, 0.3);
+}
+
+td {
+    padding: 16px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Contextual Action Buttons in Table */
+.btn-remove { background: #ff5252; color: white; border: none; padding: 7px 15px; border-radius: 6px; cursor: pointer; }
+.btn-add { background: #00c853; color: white; border: none; padding: 7px 15px; border-radius: 6px; cursor: pointer; }
+.btn-approve { background: #2979ff; color: white; border: none; padding: 7px 15px; border-radius: 6px; cursor: pointer; }
+
+/* ==========================================================================
+   PROFILE CARD (BEAUTIFIED)
+   ========================================================================== */
+.profile-card {
+    background: linear-gradient(145deg, rgba(42, 3, 61, 0.9), rgba(23, 1, 33, 0.95));
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.profile-card h3 {
+    margin: 0 0 30px 0;
+    font-size: 24px;
+    color: #00c853;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.profile-grid div {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 55px;
+    overflow: hidden;
+}
+
+.profile-grid label {
+    display: block;
+    font-size: 11px;
+    color: #00c853;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.profile-grid span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ATTENDANCE ACTIONS (MARK LOGIN/LOGOUT)
+   ========================================================================== */
+.action-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.primary-btn {
+    background: #00c853;
+    color: #170121;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid #00c853;
+    color: #00c853;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary-btn:hover { background: #00e676; transform: translateY(-2px); }
+.secondary-btn:hover { background: rgba(0, 200, 83, 0.1); }
+
+.calendar-popup {
+    position: fixed;
+    top: 85px;              /* just below top bar */
+    right: 40px;            /* align with right padding of top-bar */
+    width: 320px;
+    background: rgba(42, 3, 61, 0.95);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    z-index: 2000;
+    display: none;          /* hidden by default */
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.weekdays,
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays div {
+    font-weight: bold;
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+.days div {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.days div:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.days div.selected {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+.weekend {
+    background: #ff5252;
+}
+
+.today {
+    background: #00c853;
+    color: black;
+    font-weight: bold;
+}
+
+.holiday-msg {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 11px;
+    color: #ffcccb;
+}
+/* ---------------- FOOTER ---------------- */
+.company-footer {
+    margin-top: 50px;
+    background: #2a033d;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-section a {
+    color: #00c853;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Company Logo */
+.company-logo {
+    width: 120px;
+    margin-bottom: 8px;
+}
+
+.company-name {
+    font-weight: bold;
+    color: #00c853;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 5px;
+    background: #1d022b;
+    font-size: 12px;
+    opacity: 0.8;
+}
+/* ==========================================================================
+   CALENDAR & MISC
+   ========================================================================== */
+.calendar-icon {
+    background: rgba(59, 5, 87, 0.8);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.exit-btn {
+    background: transparent;
+    border: 1px solid #ff5252;
+    color: #ff5252;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 3000;
+    bottom: 30px;
+    right: 30px;
+}
+
+
+#toast.show { visibility: visible; }

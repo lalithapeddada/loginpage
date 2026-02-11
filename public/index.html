@@ -2,25 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login-Page</title>
+    <title>Login & Signup</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>Login</h2>
-
-    <input type="email" id="email" placeholder="Enter Email" required>
-    <button onclick="generateOTP()">Generate OTP</button>
-
-    <p id="otpDisplay"></p>
-
-    <input type="text" id="otpInput" placeholder="Enter OTP">
-
-    <button onclick="verifyOTP()">Verify OTP</button>
-
-    <p id="result"></p>
+<div class="auth-switch">
+    <span id="signinText" class="active">Sign In</span>
+    <span>|</span>
+    <span id="signupText">Sign Up</span>
 </div>
+
+<div class="main-card">
+
+    <!-- SIGN IN -->
+    <div id="signinSection" class="form-section">
+        <h2>Sign In</h2>
+        <input type="email" id="email" placeholder="Enter Email">
+        <p id="emailError"></p>
+        <button id="continueBtn">Continue</button>
+    </div>
+
+    <!-- OTP -->
+    <div id="otpSection" class="form-section hidden">
+        <h2>Verify Email</h2>
+        <p id="displayEmail" class="small-text"></p>
+        <input type="text" id="otpInput" placeholder="Enter 6-digit OTP">
+        <button id="verifyBtn">Verify & Login</button>
+        <button class="btn-link" id="backToEmailBtn">Back</button>
+    </div>
+
+    <!-- SIGN UP -->
+    <div id="signupSection" class="form-section hidden">
+        <h2>Create Account</h2>
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="text" id="signupId" placeholder="Employee ID">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="text" id="signupLocation" placeholder="Location">
+        <input type="text" id="signupDept" placeholder="Department">
+        <input type="text" id="signupSubdept" placeholder="Sub Department">
+        <input type="text" id="signupActiveflag" placeholder="ActiveFlag (0/1)">
+        <input type="text" id="signupManagerid" placeholder="Manager ID">
+        <input type="text" id="signupPosition" placeholder="Position">
+        <button id="signupSubmitBtn">Submit</button>
+        <button class="btn-link" id="backToSigninBtn">Back</button>
+    </div>
+
+</div>
+
 <div id="toast"></div>
 
 <script src="script.js"></script>
